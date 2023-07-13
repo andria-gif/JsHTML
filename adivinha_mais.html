@@ -1,0 +1,72 @@
+<meta charset="UTF-8">
+
+<input>
+<button>Compare com o meu segredo</button>
+
+<script>
+   function sorteia() {
+
+      return Math.round(Math.random() * 10);
+   }
+
+   function sorteiaNumeros(quantidade) {
+
+      var segredos = [];
+
+      var numero = 1;
+
+      while (numero <= quantidade) {
+
+         var numeroAleatorio = sorteia();
+
+         if (numeroAleatorio !== 0) {
+
+            var achou = false;
+
+            for (var posicao = 0; posicao < segredos.length; posicao++) {
+
+               if (segredos[posicao] == numeroAleatorio) {
+                  achou = true;
+                  break;
+               }
+            }
+
+            if (achou == false) {
+               segredos.push(numeroAleatorio);
+               numero++;
+            }
+         }
+      }
+
+      return segredos;
+   }
+
+   var segredos = sorteiaNumeros(5);
+   console.log(segredos);
+
+
+   var input = document.querySelector("input");
+   input.focus();
+   ///pega a variavel do mundo html e coloca ela dentro da variavel em js 
+
+   function verifica() {
+      var achou = false;
+      for (var posicao = 0; segredos.length; posicao++) {//  o .length de um array //for é estrutura de repetição
+         //retorna a quantidade de elementos que ele tem
+         if (input.value == segredos[posicao]) { //iinput.value é resposável por informar o valor add na caixa
+            alert("Você acertou!");
+            achou = ture;
+            break;
+         }
+         if (achou == false) {
+            alert("Você errou!")
+         }
+
+      }
+      input.value = "";
+      input.focus();
+   }
+
+   var button = document.querySelector("button");
+   button.onclick = verifica; ///manda o botão ser acionado somente ao clicar 
+</script>

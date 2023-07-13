@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var contador = 33;
+    //a varivel contador apenas determina de onde a contagem começa. 
+    //Se for um numero maior doque o 40 do while o sistema vai direto p fim
+    // se eu começar no 33 que é extamente o numero que nao pode ser exibido ele pula p 34
+    while (contador <= 40) {
+        // essa condicional está dizendo que se o meu numero inicioal for maior ou igual a quarenta
+        if (contador == 33) {
+            contador = contador + 1;// quando o caontador chegar no 33 ele pula direto p 44
+        }
+        else if (contador == 37) {
+            contador = contador + 1;// quando o caontador chegar no 37 ele pula direto p 38
+        }
+        else {
+            mostra(contador);
+            contador = contador + 1; //aqui estabele que o numero seja contado de um em um 
+        }
+    }
+
+    mostra("FIM");
+
+</script>
